@@ -1,0 +1,90 @@
+﻿<Window x:Class="ReplayParserNET.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="384" d:DesignWidth="641" SizeToContent="WidthAndHeight"
+        >
+    <Grid Name="grid_Main">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Row="0">
+            <Menu>
+                <MenuItem Header="File">
+                    <MenuItem Header="Open Replay" Name="menuItem_Open"/>
+                    <MenuItem Header="Add Replay" Name="menuItem_AddReplay"/>
+                    <MenuItem Header="Add Folder" Name="menuItem_AddFolder"/>
+                    <MenuItem Header="Quit" Name="menuItem_Quit"/>
+                </MenuItem>
+                <MenuItem Header="View">
+                    
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Header="About" Name="menuItem_About"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        
+        <TabControl Grid.Row="1" Grid.Column="0" Name="tabControl">
+            <TabItem Header="Replay Info" Name="tab_ReplayInfo">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Replay Browser" Name="tab_ReplayBrowser">
+                <Grid Height="Auto" Width="Auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="325*"></RowDefinition>
+                        <RowDefinition Height="150*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Height="Auto" Name="stackPanel_TopLeft" Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <Button Content="Add Replays" Height="22" Name="button_AddReplays" Width="75" Margin="5,0,0,0" />
+                        <Button Content="Add Folder" Height="22" Name="button_AddFolder" Width="75" Margin="7,0,0,0" />
+                        <Button Content="Refresh" Height="22" Name="button_Refresh" Width="75" Margin="7,0,0,0" />
+                        <Button Content="Search" Height="22" Name="button_Search" Width="75" Margin="7,0,0,0" />
+                        <Label Content="0 Replays, 0 Player Instances" Height="28" Name="label_Counts" Margin="7,0,0,0" />
+                    </StackPanel>
+                    <StackPanel Height="Auto" Name="stackPanel_TopRight" Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                        <Button Content="Rename Replays" Height="22" Name="button_RenameReplays" Width="Auto"/>
+                        <Button Content="Delete Replays" Height="22" Name="button_DeleteReplays" Width="Auto" Margin="7,0,0,0" />
+                        <Button Content="Clear Database" Height="22" Name="button_ClearDatabase" Width="Auto" Margin="7,0,5,0" />
+                    </StackPanel>
+                    <StackPanel Height="Auto" Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                        <Label Content="View Table:" Margin="5,0,0,0"/>
+                        <RadioButton Content="Replays" Name="radioButton_Replays" Margin="5,5,0,0"/>
+                        <RadioButton Content="Players" Name="radioButton_Players" Margin="5,5,0,0"/>
+                    </StackPanel>
+                    <GroupBox Header="Replays" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0" Margin="5,5,5,5">
+                        <DataGrid Name="dataGrid_Replays" Margin="5,5,5,5">
+                            
+                        </DataGrid>
+                    </GroupBox>
+                    <GroupBox Header="Replay Statistics" Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="0" Margin="5,0,5,5">
+                        <DataGrid Name="dataGrid_ReplayStats" Margin="5,5,5,5">
+
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Settings" Name="tab_Settings">
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
